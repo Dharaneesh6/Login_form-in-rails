@@ -1,0 +1,264 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+/* ============================
+   Global Styles
+=============================== */
+:root {
+  --brand: #3b2f2f;
+  --accent: #4b8b3b;
+  --border: #e0e0e0;
+  --error: #b33;
+  --muted: #666;
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --radius: 10px;
+  --max-width: 780px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================
+   Containers
+=============================== */
+.container {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ============================
+   Navbar
+=============================== */
+.nav {
+  background: var(--brand);
+  padding: 0.7rem 0;
+  color: white;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links form {
+  display: inline; /* keep logout inline */
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.75);
+  margin-right: 0.6rem;
+}
+
+/* ============================
+   Buttons
+=============================== */
+.btn {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+.btns {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.push {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.btn.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-outline {
+  /* background: transparent; */
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* CTA button */
+.big-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  border-radius: var(--radius);
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+/* ============================
+   Forms
+=============================== */
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(75, 139, 59, 0.15);
+}
+
+/* Inline validation error */
+.error {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: var(--error);
+}
+
+/* ============================
+   Flash Messages
+=============================== */
+.flash {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.flash.notice {
+  background: #e6f4ea;
+  border: 1px solid #cfead0;
+  color: #225e23;
+}
+
+.flash.alert {
+  background: #fdecea;
+  border: 1px solid #f2c5c5;
+  color: #7a1d1d;
+}
+
+/* ============================
+   Home Page (index)
+=============================== */
+.lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+.home-actions {
+  margin-top: 1.4rem;
+}
+
+/* ============================
+   Profile Page
+=============================== */
+.profile {
+  background: var(--surface);
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.profile-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ============================
+   Footer
+=============================== */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+
+  background: var(--bg); /* or white */
+  padding: 1rem 0;
+
+  color: var(--muted);
+  font-size: 0.9rem;
+
+  border-top: 1px solid var(--border);
+}
+
+/* ============================
+   Mobile
+=============================== */
+@media (max-width: 640px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .container {
+    margin-top: 1rem;
+  }
+}

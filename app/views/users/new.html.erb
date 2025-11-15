@@ -1,0 +1,32 @@
+<h2>Create an account</h2>
+
+<%= form_with model: @user, url: signup_path, local: true do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Your name" %>
+    <%= error_message_on(@user, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: "you@example.com" %>
+    <%= error_message_on(@user, :email) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "minimum 8 characters" %>
+    <%= error_message_on(@user, :password) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: "btn primary" %>
+  </div>
+<% end %>
+
+<p class="muted">Already have an account? <%= link_to "Sign in", sign_in_path %></p>

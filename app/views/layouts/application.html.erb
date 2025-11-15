@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AuthApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="<%= root_path %>">AuthApp</a>
+
+        <nav class="nav-links">
+          <% if logged_in? %>
+            <span class="muted">Signed in as <%= current_user.name %></span>
+            <%= link_to "Profile", user_path(current_user), class: "btn" %>
+            <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn" %>
+            <%= button_to "Logout", sign_out_path, method: :delete, class: "btn btn-outline" %>
+          <% else %>
+            <%= link_to "Sign up", signup_path, class: "btn" %>
+            <%= link_to "Sign in", sign_in_path, class: "btn btn-outline" %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container main">
+      <% flash.each do |key, message| %>
+        <div class="flash <%= key %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+
+
+    </main>
+  
+
+    <footer class="container footer">
+      <p>© <%= Time.current.year %> CoffeeAuthApp</p>
+    </footer>
+  </body>
+</html>

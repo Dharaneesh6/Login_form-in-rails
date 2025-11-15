@@ -1,0 +1,14 @@
+<h1>Welcome to  AuthApp</h1>
+
+<p class="lead">A minimal authentication.</p>
+
+<div class="home-actions">
+  <% if logged_in? %>
+    <p>Hello, <strong><%= current_user.name %></strong> — welcome back!</p>
+    <%= link_to "Go to your profile", user_path(current_user), class: "btns btn-outline" %>
+  <% else %>
+    <p>New here? Create an account or sign in to continue.</p>
+    <%= link_to "Get started — Sign up", signup_path, class: "btns btn-outline" %>
+    <%= link_to "Sign in", sign_in_path, class: "btn btn-outline" %>
+  <% end %>
+</div>

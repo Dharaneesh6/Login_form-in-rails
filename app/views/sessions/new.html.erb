@@ -1,0 +1,19 @@
+<h2>Sign in</h2>
+
+<%= form_with url: sign_in_path, scope: :session, local: true do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: "you@example.com" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign in", class: "btn primary" %>
+  </div>
+<% end %>
+
+<p class="muted">Don't have an account? <%= link_to "Sign up", signup_path %></p>

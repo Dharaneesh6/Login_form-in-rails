@@ -1,0 +1,35 @@
+<h1>Users edit</h1>
+
+<h2>Edit Profile</h2>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= error_message_on(@user, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= error_message_on(@user, :email) %>
+  </div>
+
+  <p class="muted">Leave the password fields blank to keep your current password.</p>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "(leave blank to keep current password)" %>
+    <%= error_message_on(@user, :password) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Profile", class: "btn primary" %>
+    <%= link_to "Cancel", user_path(@user), class: "btn btn-outline" %>
+  </div>
+<% end %>
